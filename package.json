@@ -1,9 +1,11 @@
-  "dependencies": {
     "react": "^19.2.1",
-    "firebase": "^12.6.0" // <-- CORRECT: NO comma
-  }, // CORRECT: NO comma
+    "firebase": "^12.6.0" 
+  }, // CORRECT: NO comma after the brace, assuming it's followed by "scripts"
   "scripts": { 
-    // ...
-  }
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    // ... and so on
+  }, // CORRECT: NO comma here if it's the end of the file
+  // ...
 
 
