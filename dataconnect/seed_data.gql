@@ -1,0 +1,68 @@
+mutation CreateSeedData @transaction @auth(level: PUBLIC, insecureReason: "This operation is used to populate the database with seed data and does not require authentication.") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      firstName: "Alice",
+      lastName: "Smith",
+      email: "alice.smith@example.com",
+      createdAt: "2024-01-01T00:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      firstName: "Bob",
+      lastName: "Johnson",
+      email: "bob.johnson@example.com",
+      createdAt: "2024-01-02T00:00:00Z"
+    }
+  ])
+  policy_insertMany(data: [
+    {
+      id: "650e8400-e29b-41d4-a716-446655440000",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      policyNumber: "AX12345",
+      policyType: "Health",
+      startDate: "2024-01-15",
+      endDate: "2025-01-15"
+    },
+    {
+      id: "650e8400-e29b-41d4-a716-446655440001",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      policyNumber: "BX67890",
+      policyType: "Auto",
+      startDate: "2024-02-01",
+      endDate: "2025-02-01"
+    }
+  ])
+  expiringItem_insertMany(data: [
+    {
+      id: "750e8400-e29b-41d4-a716-446655440000",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      itemName: "Passport",
+      itemType: "Identification",
+      expirationDate: "2024-12-31"
+    },
+    {
+      id: "750e8400-e29b-41d4-a716-446655440001",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      itemName: "Driver's License",
+      itemType: "Identification",
+      expirationDate: "2025-06-30"
+    }
+  ])
+  medicalRecord_insertMany(data: [
+    {
+      id: "850e8400-e29b-41d4-a716-446655440000",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      recordType: "Vaccination",
+      recordDate: "2024-03-15",
+      diagnosis: "Flu"
+    },
+    {
+      id: "850e8400-e29b-41d4-a716-446655440001",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      recordType: "Checkup",
+      recordDate: "2024-04-01",
+      diagnosis: "Healthy"
+    }
+  ])
+}

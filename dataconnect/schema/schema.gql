@@ -1,0 +1,42 @@
+type User @table {
+  email: String!
+  createdAt: Timestamp!
+  firstName: String
+  lastName: String
+  dateOfBirth: Date
+  contactNumber: String
+  address: String
+}
+
+type Policy @table {
+  user: User!
+  policyType: String!
+  policyNumber: String!
+  startDate: Date!
+  endDate: Date!
+  provider: String
+  coverageDetails: String
+  premiumAmount: Float
+  renewalFrequency: String
+}
+
+type ExpiringItem @table {
+  user: User!
+  itemName: String!
+  expirationDate: Date!
+  itemType: String!
+  issuingAuthority: String
+  reminderDate: Date
+  notes: String
+}
+
+type MedicalRecord @table {
+  user: User!
+  recordType: String!
+  recordDate: Date!
+  doctorName: String
+  diagnosis: String
+  medication: String
+  notes: String
+  attachmentURL: String
+}
